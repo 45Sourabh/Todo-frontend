@@ -2,14 +2,14 @@ function TodoList({ data, editData, input, editingId, setTodo }) {
   async function handleEdit(item) {
     editData(true);
     editingId(item._id);
-    const res = await fetch(`http://localhost:5050/${item._id}`);
+    const res = await fetch(`https://todo-backend-4i3z.onrender.com/${item._id}`);
     const data = await res.json();
     input(data.input);
   }
 
   async function handleDelete(item) {
     try {
-      const res = await fetch(`http://localhost:5050/${item._id}`, {
+      const res = await fetch(`https://todo-backend-4i3z.onrender.com/${item._id}`, {
         method: "DELETE",
       });
       const deleteData = await res.json();

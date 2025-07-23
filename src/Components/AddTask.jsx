@@ -9,7 +9,7 @@ function AddTask() {
 
   useEffect(() => {
     async function fetchingData() {
-      let res = await fetch("http://localhost:5050/");
+      let res = await fetch("https://todo-backend-4i3z.onrender.com/");
       let data = await res.json();
       setTodos(data);
     }
@@ -20,7 +20,7 @@ function AddTask() {
     if (input.trim() === "") return;
 
     try {
-      const res = await fetch("http://localhost:5050/add", {
+      const res = await fetch("https://todo-backend-4i3z.onrender.com/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input }),
@@ -36,7 +36,7 @@ function AddTask() {
   async function handleUpdate() {
     if (input.trim() === "") return alert("Please Enter Input");
 
-    const res = await fetch(`http://localhost:5050/${editingId}`, {
+    const res = await fetch(`https://todo-backend-4i3z.onrender.com/${editingId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input }),
